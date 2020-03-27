@@ -6,7 +6,7 @@ import keras
 
 
 TEST_DIR = "test"
-IMG_SIZE = 50
+IMG_SIZE = 224
 
 
 testing_data = []
@@ -14,7 +14,7 @@ def test_data():
     for img in tqdm(os.listdir(TEST_DIR)):
         path = os.path.join(TEST_DIR,img)
         img_num = img.split('.')[0]
-        img = cv2.imread(path,cv2.IMREAD_GRAYSCALE)
+        img = cv2.imread(path)
         img = cv2.resize(img, (IMG_SIZE,IMG_SIZE))
         testing_data.append([np.array(img), img_num])
     shuffle(testing_data)    
@@ -30,7 +30,7 @@ for features, labels in testing_data :
     y_test.append(labels)
 
 
-X_test = np.array(X_test).reshape(-1, IMG_SIZE, IMG_SIZE, 1)
+X_test = np.array(X_test).reshape(-1, IMG_SIZE, IMG_SIZE, 3)
 
 X_test = X_test/255.0
 
