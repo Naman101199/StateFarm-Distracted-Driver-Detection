@@ -17,7 +17,7 @@ y = np.load("y.npy")
 model = keras.models.Sequential()
 
 # 3 convolutional layers
-model.add(keras.layers.Conv2D(32, (3, 3), input_shape = X.shape[1:]))
+model.add(keras.layers.Conv2D(32, (3, 3), input_shape = (224,224,3))
 model.add(keras.layers.Activation("relu"))
 model.add(keras.layers.MaxPooling2D(pool_size=(2,2)))
 
