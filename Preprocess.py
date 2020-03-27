@@ -6,7 +6,7 @@ import cv2
 path="train"
 
 CATEGORIES = ["c0","c1","c2","c3","c4","c5","c6","c7","c8","c9"]
-IMG_SIZE = 50
+IMG_SIZE = 224
 
 
 for category in CATEGORIES : 
@@ -22,7 +22,7 @@ def creating_training_data() :
         l=os.path.join(path,category)
         class_num=CATEGORIES.index(category)
         for img in tqdm(os.listdir(l)) :
-                img_array = cv2.imread(os.path.join(l,img),cv2.IMREAD_GRAYSCALE)
+                img_array = cv2.imread(os.path.join(l,img))
                 new_array=cv2.resize(img_array,(IMG_SIZE,IMG_SIZE))
                 training_data.append([new_array,class_num])
             
@@ -39,7 +39,7 @@ for features, labels in training_data :
     y.append(labels)
 
 
-X = np.array(X).reshape(-1, IMG_SIZE, IMG_SIZE, 1)
+X = np.array(X).reshape(-1, IMG_SIZE, IMG_SIZE, 3)
 
 
 np.save("X",X)
