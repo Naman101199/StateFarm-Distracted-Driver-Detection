@@ -12,7 +12,7 @@ IMG_SIZE = 224
 for category in CATEGORIES : 
     l=os.path.join(path,category)
     for img in tqdm(os.listdir(path)) :
-        img_array=cv2.imread(os.path.join(path,img),cv2.IMREAD_GRAYSCALE)
+        img_array=cv2.imread(os.path.join(path,img))
 
 
 training_data = []
