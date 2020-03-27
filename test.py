@@ -1,7 +1,8 @@
 import os
 import numpy as np
 import cv2
-import keras
+from tensorflow import keras
+from tqmd import tqmd
 
 TEST_DIR = "test"
 IMG_SIZE = 224
