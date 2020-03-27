@@ -2,12 +2,10 @@ import os
 import numpy as np
 import cv2
 
-
 path="train"
 
 CATEGORIES = ["c0","c1","c2","c3","c4","c5","c6","c7","c8","c9"]
 IMG_SIZE = 224
-
 
 for category in CATEGORIES : 
     l=os.path.join(path,category)
