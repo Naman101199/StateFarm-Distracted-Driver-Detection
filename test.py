@@ -3,11 +3,8 @@ import numpy as np
 import cv2
 import keras
 
-
-
 TEST_DIR = "test"
 IMG_SIZE = 224
-
 
 testing_data = []
 def test_data():
@@ -36,10 +33,6 @@ X_test = X_test/255.0
 
 model_test = keras.models.load_model("my_model.h5")
 prediction = model_test.predict([X_test])
-print(prediction[2])
-
-print(len(testing_data))
-
 
 final_prediction = []
 for i in range(len(testing_data)):
